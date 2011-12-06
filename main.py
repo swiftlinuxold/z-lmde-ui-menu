@@ -30,9 +30,38 @@ print 'BEGIN THE MAIN MENU CONFIGURATION'
 # Remove menu-xdg (not provided in antiX Linux)
 os.system('apt-get remove -y menu-xdg')
 
-os.system('apt-get install -y xscreensaver') # Add XScreenSaver
+# gtkdialog is needed to run exitantix.sh, the script that provides the logout options.
+# MUST download and install gtkdialog, which is not in any of the repositories in sources.list.
+# Therefore, wget is needed to install it directly.
+os.system('wget http://ftp.us.debian.org/debian/pool/main/g/gtkdialog/gtkdialog_0.7.20-4_i386.deb')
+os.system('dpkg -i gtkdialog_0.7.20-4_i386.deb')
+os.system('rm gtkdialog_0.7.20-4_i386.deb')
 
 import shutil
+
+dir1 = dir_develop+'/ui-menu/usr_local_bin'
+dir2 = '/usr/local/bin'
+# Copy the logout files to /usr/local/bin
+src = dir1 + '/exitantix.sh'
+dest = dir2 + '/exitantix.sh'
+shutil.copyfile(src, dest)
+os.system ('chmod a+rx ' + dest)
+
+src = dir1 + '/logouthelper.sh'
+dest = dir2 + '/logouthelper.sh'
+shutil.copyfile(src, dest)
+os.system ('chmod a+rx ' + dest)
+
+src = dir1 + '/reboot.sh'
+dest = dir2 + '/reboot.sh'
+shutil.copyfile(src, dest)
+os.system ('chmod a+rx ' + dest)
+
+src = dir1 + '/shutdown.sh'
+dest = dir2 + '/shutdown.sh'
+shutil.copyfile(src, dest)
+os.system ('chmod a+rx ' + dest)
+
 
 print 'FINISHED THE MAIN MENU CONFIGURATION'
 print '===================================='
