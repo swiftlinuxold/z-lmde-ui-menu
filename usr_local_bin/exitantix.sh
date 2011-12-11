@@ -25,14 +25,6 @@ export Logout='
       </hbox>
 	  <hbox>
 		<button>
-		<input file>"/usr/share/icons/gTangish-2.0a1/32x32/apps/gnome-session-hibernate.png"</input>
-		<action>antixhibernate.sh</action>
-                <action>EXIT:close</action>
-		</button>
-		<text use-markup="true" width-chars="15"><label>"Hibernate"</label></text>
-	  </hbox>
-	  <hbox>
-		<button>
 		<input file>"/usr/share/icons/gTangish-2.0a1/32x32/apps/gnome-session-reboot.png"</input>
 		<action>reboot.sh</action>
 		</button>
@@ -48,14 +40,6 @@ export Logout='
 		</button>
 		<text use-markup="true" width-chars="15"><label>"Log Out"</label></text>
       </hbox>
-	  <hbox>
-		<button>
-		<input file>"/usr/share/icons/gTangish-2.0a1/32x32/apps/gnome-session-suspend.png"</input>
-		<action>antixsuspend.sh</action>
-                <action>EXIT:close</action>
-		</button>
-		<text use-markup="true" width-chars="15"><label>"Suspend"</label></text>
-	  </hbox>
 	  <hbox>
 		<button>
 		<input file>"/usr/share/icons/gTangish-2.0a1/32x32/apps/gnome-session-halt.png"</input>

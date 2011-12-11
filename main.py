@@ -37,6 +37,10 @@ os.system('wget http://ftp.us.debian.org/debian/pool/main/g/gtkdialog/gtkdialog_
 os.system('dpkg -i gtkdialog_0.7.20-4_i386.deb')
 os.system('rm gtkdialog_0.7.20-4_i386.deb')
 
+# Allow non-root users to shutdown, reboot, etc.
+os.system('sudo chmod u+s /sbin/poweroff')
+os.system('sudo chmod u+s /sbin/reboot')
+
 import shutil
 
 dir1 = dir_develop+'/ui-menu/usr_local_bin'
