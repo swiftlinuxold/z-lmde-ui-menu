@@ -1,11 +1,6 @@
-# File Name: exitantiX.sh
-# Purpose: exit script from fluxbox and icewm
-# Authors: OU812 and minor modifications by anticapitalista
-# Latest Change: 20 August 2008
-# Latest Change: 02 January 2009
-######################################################################################################
-
 #!/bin/sh
+
+# This is a modified version of the script /usr/local/bin/exitantix.sh from antiX Linux.
 
 export Logout='
 
