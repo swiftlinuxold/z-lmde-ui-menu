@@ -13,7 +13,7 @@ export Logout='
 	  <hbox>
 		<button>
 		<input file>"/usr/share/icons/gTangish-2.0a1/32x32/actions/gnome-lockscreen.png"</input>
-		<action>xlock</action>
+		<action>xscreensaver-command -lock</action>
                 <action>EXIT:close</action>
 		</button>
 		<text use-markup="true" width-chars="15"><label>"Lock Screen"</label></text>
