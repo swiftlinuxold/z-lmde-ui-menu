@@ -30,7 +30,7 @@ print 'BEGIN THE MAIN MENU CONFIGURATION'
 # Remove menu-xdg (not provided in antiX Linux)
 os.system('apt-get remove -y menu-xdg')
 
-# gtkdialog is needed to run exitantix.sh, the script that provides the logout options.
+# gtkdialog is needed to run exitswift.sh, the script that provides the logout options.
 # MUST download and install gtkdialog, which is not in any of the repositories in sources.list.
 # Therefore, wget is needed to install it directly.
 os.system('wget http://ftp.us.debian.org/debian/pool/main/g/gtkdialog/gtkdialog_0.7.20-4_i386.deb')
@@ -46,8 +46,8 @@ import shutil
 dir1 = dir_develop+'/ui-menu/usr_local_bin'
 dir2 = '/usr/local/bin'
 # Copy the logout files to /usr/local/bin
-src = dir1 + '/exitantix.sh'
-dest = dir2 + '/exitantix.sh'
+src = dir1 + '/exitswift.sh'
+dest = dir2 + '/exitswift.sh'
 shutil.copyfile(src, dest)
 os.system ('chmod a+rx ' + dest)
 
