@@ -55,7 +55,7 @@ export Logout='
   <hbox>
 	<button>
 	  <label>"Close"</label>
-	  <input file>"/usr/share/icons/gTangish-2.0a1/16x16/actions/dialog-cancel.png"</input>
+	  <input file>"/usr/share/icons/nuoveXT2/16x16/actions/process-stop.png"</input>
 	  <action>EXIT:close</action>
 	</button>
   </hbox>
