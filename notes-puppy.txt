@@ -1,0 +1,18 @@
+The script for updating the menu in Puppy Linux is /usr/sbin/fixmenus .
+
+SECTIONS:
+Desktop
+System
+Setup
+Utility
+Filesystem
+Graphic
+Document
+Business
+Personal
+Network
+Internet
+Multimedia
+Fun
+Help
+Shutdown

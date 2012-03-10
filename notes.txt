@@ -1,0 +1,7 @@
+The /etc/x11/icewm/programs file is the one automatically edited.
+
+http://www.icewm.org/manual/icewm-12.html#ss12.3:
+The menu program (in the menu package) is the one that automatically updates the programs file.
+
+file:///usr/share/doc/menu/html/ch7.html#s7.1:
+Once it's read all menu entry files, update-menus starts all executable scripts in /etc/menu-methods/
