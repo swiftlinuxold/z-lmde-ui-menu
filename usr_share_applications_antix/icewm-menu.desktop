@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=update icewm menu
+Exec=auto-icewm-menu.sh
+Icon=/usr/share/icons/gTangish-2.0a1/48x48/categories/applications-system.png
+Terminal=false
+Type=Application
+Categories=Settings;
