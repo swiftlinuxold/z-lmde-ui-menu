@@ -29,25 +29,35 @@ else:
 print '================================='
 print 'BEGIN THE MAIN MENU CONFIGURATION'
 
+import subprocess
+
 def install_pkg_antix (name1, name2, url):
-    print 'DOWNLOADING ' + name1 + ' FROM ' + url
-    wget_command = 'wget -nv -nd -nH -r -l1 --no-parent -A '
-    deb_file = name1 + '*' + name2
-    wget_command = wget_command + chr(39) + deb_file + chr(39) + ' '
-    wget_command = wget_command + url
-    print wget_command
-    os.system (wget_command)
-    os.system ('dpkg -i ' + deb_file)
-    os.system ('rm ' + deb_file)
-    os.system ('rm robot*')
+    # First check for package
+    # Credit: http://stackoverflow.com/questions/3387961/check-if-a-package-is-installed
+    devnull = open (os.devnull,"w")
+    retval = subprocess.call(["dpkg","-s",name1],stdout=devnull,stderr=subprocess.STDOUT)
+    devnull.close()
+    if retval == 0:
+        print (name1 + ' is already installed')
+    else:
+        print 'DOWNLOADING ' + name1 + ' FROM ' + url
+        wget_command = 'wget -nv -nd -nH -r -l1 --no-parent -A '
+        deb_file = name1 + '_*' + name2
+        wget_command = wget_command + chr(39) + deb_file + chr(39) + ' '
+        wget_command = wget_command + url
+        print wget_command
+        os.system (wget_command)
+        os.system ('dpkg -i ' + deb_file)
+        os.system ('rm ' + deb_file)
+        os.system ('rm robot*')
 
 # Need for exit-antix (logout options): 
 # gtkdialog, dbus (already installed), udisks (already installed), xlockmore
 # gtangish-2.0a1-icons
-# install_pkg_antix ('gtkdialog_', '_i386.deb', 'http://ftp.us.debian.org/debian/pool/main/g/gtkdialog/')
-# install_pkg_antix ('xlockmore_', '_i386.deb', 'http://ftp.us.debian.org/debian/pool/main/x/xlockmore/')
-# install_pkg_antix ('exit-antix_', '.deb', 'http://www.daveserver.info/antiX/main/')
-# install_pkg_antix ('gtangish-2.0a1-icons_', '.deb', 'http://www.daveserver.info/antiX/main/')
+install_pkg_antix ('gtkdialog', '_i386.deb', 'http://ftp.us.debian.org/debian/pool/main/g/gtkdialog/')
+install_pkg_antix ('xlockmore', '_i386.deb', 'http://ftp.us.debian.org/debian/pool/main/x/xlockmore/')
+install_pkg_antix ('exit-antix', '.deb', 'http://www.daveserver.info/antiX/main/')
+install_pkg_antix ('gtangish-2.0a1-icons', '.deb', 'http://www.daveserver.info/antiX/main/')
 
 # Configure automatic menu updates
 import shutil
