@@ -6,31 +6,9 @@ prog "Editor" /usr/share/icons/gTangish-2.0a1/32x32/apps/accessories-text-editor
 prog "Screenshot" /usr/share/icons/gTangish-2.0a1/32x32/devices/camera-photo.png bash antixscreenshot.sh
 separator
 menufile "Applications" /usr/share/icons/gTangish-2.0a1/32x32/apps/blam.png application
-menu "Terminal Apps" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png {
-        menu "Office" /usr/share/icons/gTangish-2.0a1/32x32/categories/applications-office.png {
-		prog "Slides" /usr/share/icons/gTangish-2.0a1/32x32/apps/ooo-impress.png xsw -T
-		prog "Word" /usr/share/icons/gTangish-2.0a1/32x32/apps/accessories-text-editor.png roxterm -e wordgrinder
-	}
-	menu "Multimedia" /usr/share/icons/gTangish-2.0a1/32x32/categories/applications-multimedia.png {
-		prog "Music Player" /usr/share/icons/gTangish-2.0a1/32x32/apps/listen.png roxterm -e mocp
-		prog "CD Ripper" /usr/share/icons/gTangish-2.0a1/32x32/apps/sound-juicer.png roxterm -e ripit
-	}
-	menu "Network" /usr/share/icons/gTangish-2.0a1/32x32/categories/applications-internet.png {
-		prog "Irssi Chat" /usr/share/icons/gTangish-2.0a1/32x32/apps/xchat.png roxterm -e irssi
-		prog "rTorrent" /usr/share/icons/gTangish-2.0a1/32x32/apps/deluge.png roxterm -e rtorrent
-		prog "Alpine Mail" /usr/share/icons/gTangish-2.0a1/32x32/apps/internet-mail.png roxterm -e alpine
-		prog "RSS/Atom Reader" /usr/share/icons/gTangish-2.0a1/32x32/apps/internet-news-reader.png roxterm -e newsbeuter -r
-		prog "Browser elinks" - roxterm -e elinks http://antiX.mepis.com
-	}
-}
+menu "Terminal Apps" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png 
 separator
 menu "Desktop" /usr/share/icons/gTangish-2.0a1/32x32/places/user-desktop.png {
-  menu "Settings" /usr/share/icons/gTangish-2.0a1/32x32/categories/preferences-desktop.png {
-	prog "RoxPanel on/off" /usr/share/icons/gTangish-2.0a1/32x32/apps/gnome-panel.png paneltoggle.sh
-	prog "RoxPinboard on/off" /usr/share/icons/gTangish-2.0a1/32x32/apps/preferences-desktop-wallpaper.png pinboardtoggle-ice.sh 
-    separator
-    prog "Conky on/off" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-system-monitor.png conkytoggle.sh
-  }
   menu "IceWM" /usr/share/icewm/icons/icewm_32x32.xpm {
 	prog "IceWM Control Center" /usr/share/icons/gTangish-2.0a1/32x32/apps/wmtweaks.png bash /usr/local/bin/icewmcc/icewmcc.sh
     separator
@@ -46,69 +24,26 @@ menu "Tools" /usr/share/icons/gTangish-2.0a1/32x32/categories/preferences-system
         separator	
                 prog "Add .desktop Files" /usr/share/icons/gTangish-2.0a1/32x32/actions/gtk-edit.png gksu bash adddesktop.sh
 	}
-	menu "Filers" /usr/share/icons/gTangish-2.0a1/32x32/places/folder.png {
-		prog "Rox Filer" roxfiler.png rox
-		prog "MC File Manager" mc.xpm roxterm -e mc
-        separator
-        prog "Search" /usr/share/icons/gTangish-2.0a1/32x32/actions/edit-find.png searchmonkey
-	}
-	menu "Editors" /usr/share/icons/gTangish-2.0a1/32x32/apps/accessories-text-editor.png {
-		prog "Ted" /usr/local/Ted/Ted.png /usr/local/bin/Ted
-		prog "Nano" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png roxterm -e nano
-	}
-	menu "Shells" /usr/share/icons/gTangish-2.0a1/32x32/categories/applications-system.png {
-		prog "Bash" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png urxvt -e bash --login
-		prog "Urxvt" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png urxvt -tr -sh 65 -fg white
-		prog "Urxvt Tabs" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png urxvt -pe tabbed
-	}
-	menu "Programming" /usr/share/icons/gTangish-2.0a1/32x32/categories/applications-development.png {
-		prog "Python" python.xpm roxterm -e python2.7
-		prog "Tclsh8.5" /usr/share/icons/gTangish-2.0a1/32x32/apps/glines.png roxterm -e tclsh8.5
-		prog "TkWish8.5" /usr/share/icons/gTangish-2.0a1/32x32/apps/gnect.png roxterm -e wish8.5
-	}
 }
 separator
 menu "Help" /usr/share/icons/gTangish-2.0a1/32x32/apps/help-browser.png {
 	menu "antiX" folder {
-		prog "antiX FAQ" - dillo /usr/share/antiX/FAQ/antiX-FAQ.html
-		prog "antiX How-To" - dillo http://antix.mepis.com/index.php/Howto_articles
+		prog "antiX FAQ" - iceweasel /usr/share/antiX/FAQ/antiX-FAQ.html
+		prog "antiX How-To" - iceweasel http://antix.mepis.com/index.php/Howto_articles
 		separator
-		prog "Rox Manual" - dillo http://roscidus.com/Manual/Manual/Manual.html
-                prog "MEPIS Manual" - dillo /usr/share/mepis-manual/en/index.html
+		prog "Rox Manual" - iceweasel http://roscidus.com/Manual/Manual/Manual.html
+                prog "MEPIS Manual" - iceweasel /usr/share/mepis-manual/en/index.html
 	}
 	separator
-	menu "Fluxbox" folder {
-		prog "Fluxbox FAQ" - dillo http://fluxbox-wiki.org/index.php/Faqs
-		prog "Fluxbox Wiki" - dillo http://fluxbox-wiki.org/index.php/Fluxbox-wiki
-		prog "Fluxbox Docs" - dillo http://fluxbox.sourceforge.net/docbook/en/html/
-		separator
-		prog "Arch Wiki" - dillo http://wiki.archlinux.org/index.php/Fluxbox
-	}
 	menu "IceWM" folder {
-		prog "IceWM FAQ" - dillo http://www.icewm.org/FAQ/
-		prog "IceWM Manual" - dillo http://www.icewm.org/manual/
+		prog "IceWM FAQ" - iceweasel http://www.icewm.org/FAQ/
+		prog "IceWM Manual" - iceweasel http://www.icewm.org/manual/
 		separator
-		prog "OSNews" - dillo http://www.osnews.com/story/7774/IceWM--The-Cool-Window-Manager/
+		prog "OSNews" - iceweasel http://www.osnews.com/story/7774/IceWM--The-Cool-Window-Manager/
 	}
         menu "JWM" folder {
-		prog "Homepage" - dillo http://joewing.net/programs/jwm/
-		prog "Arch Wiki" - dillo https://wiki.archlinux.org/index.php/JWM
-		prog "WM - Puppy-Linux" - dillo http://puppy.b0x.me/wiki/doku.php?id=jwm
-	}
-	separator
-	menu "Applications" folder {
-                prog "mtPaint" - dillo http://mtpaint.sourceforge.net/handbook/
-		prog "Partimage" - dillo http://www.partimage.org/Partimage-manual_Usage
-		prog "Firewall" - dillo https://help.ubuntu.com/community/Gufw
-	}
-	menu "Man Pages" folder {
-		prog "Terminal" - roxterm -e man urxvt
-		prog "Nano" - roxterm -e man nano
-		prog "Torrent" - roxterm -e man rtorrent
-		prog "Irssi" - roxterm -e man irssi
-		prog "Rss/Atom" - roxterm -e man newsbeuter
-		prog "mc" - roxterm -e man mc
-		prog "Backup" - roxterm -e man luckybackup
-		prog "mocp" - roxterm -e man mocp
+		prog "Homepage" - iceweasel http://joewing.net/programs/jwm/
+		prog "Arch Wiki" - iceweasel https://wiki.archlinux.org/index.php/JWM
+		prog "WM - Puppy-Linux" - iceweasel http://puppy.b0x.me/wiki/doku.php?id=jwm
 	}
 }
