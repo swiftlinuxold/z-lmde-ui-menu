@@ -56,8 +56,10 @@ def install_pkg_antix (name1, name2, url):
 # gtangish-2.0a1-icons
 install_pkg_antix ('gtkdialog', '_i386.deb', 'http://ftp.us.debian.org/debian/pool/main/g/gtkdialog/')
 install_pkg_antix ('xlockmore', '_i386.deb', 'http://ftp.us.debian.org/debian/pool/main/x/xlockmore/')
-install_pkg_antix ('exit-antix', '.deb', 'http://www.daveserver.info/antiX/main/')
 install_pkg_antix ('gtangish-2.0a1-icons', '.deb', 'http://www.daveserver.info/antiX/main/')
+install_pkg_antix ('exit-antix', '.deb', 'http://www.daveserver.info/antiX/main/')
+os.system ('chmod a+rx /sbin/halt')
+os.system ('chmod a+rx /sbin/shutdown')
 
 # Configure automatic menu updates
 import shutil
