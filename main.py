@@ -90,6 +90,16 @@ if (is_chroot):
     os.system ('chown -R mint:users ' + dest)
 else:
     os.system ('chown -R ' + uname + ':users ' + dest)
+    
+src = dir_develop + '/ui-menu/usr_local_bin/reboot.sh'
+dest = '/usr/local/bin/reboot.sh'
+shutil.copyfile(src, dest)
+os.system ('chmod a+rwx ' + dest)
+
+src = dir_develop + '/ui-menu/usr_local_bin/shutdown.sh'
+dest = '/usr/local/bin/shutdown.sh'
+shutil.copyfile(src, dest)
+os.system ('chmod a+rwx ' + dest)
 
 # menu file
 src = dir_develop + '/ui-menu/etc_X11_icewm/menu'
