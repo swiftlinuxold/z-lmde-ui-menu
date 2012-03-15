@@ -2,5 +2,5 @@
 # From antiX Linux
 # Modified to remove the sudo
 
-/usr/shutdown
+/sbin/shutdown
 
