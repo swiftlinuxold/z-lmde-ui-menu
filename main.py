@@ -73,6 +73,8 @@ src = dir_develop + '/ui-menu/usr_share_applications_antix/icewm-menu.desktop'
 dest = '/usr/share/applications/antix/icewm-menu.desktop'
 shutil.copyfile(src, dest)
 
+os.system ('ln -s /etc/xdg/menus/lxde-applications.menu /etc/xdg/menus/applications.menu')
+
 src = dir_develop + '/ui-menu/usr_local_bin/auto-icewm-menu.sh'
 dest = '/usr/local/bin/auto-icewm-menu.sh'
 shutil.copyfile(src, dest)
