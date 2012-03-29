@@ -38,31 +38,41 @@ def install_pkg_antix (name1, name2, url):
     retval = subprocess.call(["dpkg","-s",name1],stdout=devnull,stderr=subprocess.STDOUT)
     devnull.close()
     if retval == 0:
-        print (name1 + ' is already installed')
+        os.system ('echo ' + name1 + ' is already installed')
     else:
-        print 'DOWNLOADING ' + name1 + ' FROM ' + url
-        wget_command = 'wget -nv -nd -nH -r -l1 --no-parent -A '
+        os.system ('echo DOWNLOADING ' + name1 + ' FROM ' + url)
+        wget_command = 'wget -nv -nd -nH -r -l1 -q --no-parent -A '
         deb_file = name1 + '_*' + name2
         wget_command = wget_command + chr(39) + deb_file + chr(39) + ' '
         wget_command = wget_command + url
-        print wget_command
+        os.system ('echo ' + wget_command)
         os.system (wget_command)
         os.system ('dpkg -i ' + deb_file)
         os.system ('rm ' + deb_file)
         os.system ('rm robot*')
 
-# Need for exit-antix (logout options): 
-# gtkdialog, dbus (already installed), udisks (already installed), xlockmore
-# gtangish-2.0a1-icons
-install_pkg_antix ('gtkdialog', '_i386.deb', 'http://ftp.us.debian.org/debian/pool/main/g/gtkdialog/')
+# Add xlockmore and icons
 install_pkg_antix ('xlockmore', '_i386.deb', 'http://ftp.us.debian.org/debian/pool/main/x/xlockmore/')
 install_pkg_antix ('gtangish-2.0a1-icons', '.deb', 'http://www.daveserver.info/antiX/main/')
-install_pkg_antix ('exit-antix', '.deb', 'http://www.daveserver.info/antiX/main/')
+
+# Allow the user to reboot or shut down
 os.system ('chmod u+s /sbin/halt')
 os.system ('chmod u+s /sbin/shutdown')
 
-# Configure automatic menu updates
+# Add the exit-os.py menu
 import shutil
+src = dir_develop + '/ui-menu/usr_local_bin/exit-os.py'
+dest = '/usr/local/bin/exit-os.py'
+shutil.copyfile(src, dest)
+os.system ('chmod a+rwx ' + dest)
+
+# Add the logout script menu
+src = dir_develop + '/ui-menu/usr_local_bin/logout_script.sh'
+dest = '/usr/local/bin/logout_script.sh'
+shutil.copyfile(src, dest)
+os.system ('chmod a+rwx ' + dest)
+
+# Configure automatic menu updates
 
 def create_dir (dir_to_create):
     if not (os.path.exists(dir_to_create)):
