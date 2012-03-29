@@ -2,4 +2,4 @@
 # From antiX Linux
 # Modified to remove the sudo
 
-/sbin/halt
+/sbin/shutdown -r now

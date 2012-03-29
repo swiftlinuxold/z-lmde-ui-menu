@@ -56,7 +56,6 @@ install_pkg_antix ('xlockmore', '_i386.deb', 'http://ftp.us.debian.org/debian/po
 install_pkg_antix ('gtangish-2.0a1-icons', '.deb', 'http://www.daveserver.info/antiX/main/')
 
 # Allow the user to reboot or shut down
-os.system ('chmod u+s /sbin/halt')
 os.system ('chmod u+s /sbin/shutdown')
 
 # Add the exit-os.py menu
@@ -71,6 +70,19 @@ src = dir_develop + '/ui-menu/usr_local_bin/logout_script.sh'
 dest = '/usr/local/bin/logout_script.sh'
 shutil.copyfile(src, dest)
 os.system ('chmod a+rwx ' + dest)
+
+# Add the reboot script menu
+src = dir_develop + '/ui-menu/usr_local_bin/reboot.sh'
+dest = '/usr/local/bin/reboot.sh'
+shutil.copyfile(src, dest)
+os.system ('chmod a+rx ' + dest)
+
+# Add the shutdown script menu
+src = dir_develop + '/ui-menu/usr_local_bin/shutdown.sh'
+dest = '/usr/local/bin/shutdown.sh'
+shutil.copyfile(src, dest)
+os.system ('chmod a+rx ' + dest)
+
 
 # Configure automatic menu updates
 
@@ -103,16 +115,6 @@ if (is_chroot):
 else:
     os.system ('chown -R ' + uname + ':users ' + dest)
     
-src = dir_develop + '/ui-menu/usr_local_bin/reboot.sh'
-dest = '/usr/local/bin/reboot.sh'
-shutil.copyfile(src, dest)
-os.system ('chmod a+rx ' + dest)
-
-src = dir_develop + '/ui-menu/usr_local_bin/shutdown.sh'
-dest = '/usr/local/bin/shutdown.sh'
-shutil.copyfile(src, dest)
-os.system ('chmod a+rx ' + dest)
-
 # menu file
 src = dir_develop + '/ui-menu/etc_X11_icewm/menu'
 dest = '/etc/X11/icewm/menu'
