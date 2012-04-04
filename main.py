@@ -41,7 +41,8 @@ def install_pkg_antix (name1, name2, url):
         os.system ('echo ' + name1 + ' is already installed')
     else:
         os.system ('echo DOWNLOADING ' + name1 + ' FROM ' + url)
-        wget_command = 'wget -nv -nd -nH -r -l1 -q --no-parent -A '
+        wget_command = 'wget -nv -nd -nH -r -l1 -q --no-parent -A -t 50 --waitretry=10 '
+        wget_command = wget_command + '--tries=50 --wait=5 --waitretry=9 --random-wait --retry-connrefused '
         deb_file = name1 + '_*' + name2
         wget_command = wget_command + chr(39) + deb_file + chr(39) + ' '
         wget_command = wget_command + url
