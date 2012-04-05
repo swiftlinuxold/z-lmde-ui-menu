@@ -37,12 +37,10 @@ def install_pkg_antix (name1, name2, url):
     devnull = open (os.devnull,"w")
     retval = subprocess.call(["dpkg","-s",name1],stdout=devnull,stderr=subprocess.STDOUT)
     devnull.close()
-    if retval == 0:
-        os.system ('echo ' + name1 + ' is already installed')
-    else:
+    i = 0
+    while (retval <> 0) and (i < 50):
         os.system ('echo DOWNLOADING ' + name1 + ' FROM ' + url)
-        wget_command = 'wget -nv -nd -nH -r -l1 -q --no-parent -A -t 50 --waitretry=10 '
-        wget_command = wget_command + '--tries=50 --wait=5 --waitretry=9 --random-wait --retry-connrefused '
+        wget_command = 'wget -nv -nd -nH -r -l1 -q --no-parent -A '
         deb_file = name1 + '_*' + name2
         wget_command = wget_command + chr(39) + deb_file + chr(39) + ' '
         wget_command = wget_command + url
@@ -51,6 +49,18 @@ def install_pkg_antix (name1, name2, url):
         os.system ('dpkg -i ' + deb_file)
         os.system ('rm ' + deb_file)
         os.system ('rm robot*')
+        devnull = open (os.devnull,"w")
+        retval = subprocess.call(["dpkg","-s",name1],stdout=devnull,stderr=subprocess.STDOUT)
+        devnull.close()
+        if (i > 3) and (retval <> 0):
+            os.system ('echo Installation not completed, will try again')
+            import time, random
+            sec = random.randrange (3,10)
+            time.sleep (sec)
+    if retval == 0:
+        os.system ('echo ' + name1 + ' is already installed')
+    else:
+        os.system ('echo WARNING: ' + name1 + ' is NOT installed')
 
 # Add xlockmore and icons
 install_pkg_antix ('xlockmore', '_i386.deb', 'http://ftp.us.debian.org/debian/pool/main/x/xlockmore/')
