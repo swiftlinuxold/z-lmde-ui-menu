@@ -26,16 +26,20 @@ else:
 
 # THIS IS THE SCRIPT FOR CONFIGURING THE MAIN MENU
 # Special thanks to antiX Linux for the exit menu and automatic menu updating
-print '================================='
-print 'BEGIN THE MAIN MENU CONFIGURATION'
+
+def message (string):
+    os.system ('echo ' + string)
+
+message ('=================================')
+message ('BEGIN THE MAIN MENU CONFIGURATION')
 
 import subprocess
 
 # Add xlockmore and icons
-os.system ('echo INSTALLING xlockmore')
-os.system ('apt-get install -qq xlockmore')
-os.system ('echo INSTALLING gtangish-2.0a1-icons')
-os.system ('apt-get install -qq gtangish-2.0a1-icons')
+message ('INSTALLING xlockmore')
+os.system ('dpkg -i ' + dir_develop + 'ui-menu/deb/xlockmore*.deb')
+message ('INSTALLING gtangish-2.0a1-icons')
+os.system ('dpkg -i ' + dir_develop + 'ui-menu/deb/gtangish*.deb')
 
 # Allow the user to reboot or shut down
 os.system ('chmod u+s /sbin/shutdown')
