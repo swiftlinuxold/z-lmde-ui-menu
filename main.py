@@ -37,9 +37,9 @@ import subprocess
 
 # Add xlockmore and icons
 message ('INSTALLING xlockmore')
-os.system ('dpkg -i ' + dir_develop + 'ui-menu/deb/xlockmore*.deb')
+os.system ('dpkg -i ' + dir_develop + '/ui-menu/deb/xlockmore*.deb')
 message ('INSTALLING gtangish-2.0a1-icons')
-os.system ('dpkg -i ' + dir_develop + 'ui-menu/deb/gtangish*.deb')
+os.system ('dpkg -i ' + dir_develop + '/ui-menu/deb/gtangish*.deb')
 
 # Allow the user to reboot or shut down
 os.system ('chmod u+s /sbin/shutdown')
