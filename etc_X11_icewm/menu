@@ -1,5 +1,5 @@
 prog "Terminal" xterm roxterm
-prog "File Manager" folder rox
+prog "File Manager" folder pcmanfm
 separator
 prog "Web Browser" /usr/share/pixmaps/iceweasel.xpm /usr/bin/iceweasel
 prog "Editor" /usr/share/icons/gTangish-2.0a1/32x32/apps/accessories-text-editor.png leafpad
