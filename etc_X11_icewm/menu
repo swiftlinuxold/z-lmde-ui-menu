@@ -1,8 +1,10 @@
-prog "Terminal" xterm roxterm
+prog "Help" /usr/share/icons/gTangish-2.0a1/32x32/apps/help.png iceweasel /usr/share/swiftlinux/help/index.html
+prog "Control Center" /usr/share/icons/gTangish-2.0a1/32x32/categories/preferences-desktop.png /usr/local/bin/config-general.py 
+prog "Network Wizard" /usr/share/icons/gnome/32x32/categories/preferences-system-network.png /usr/local/bin/config-network.py
 prog "File Manager" folder pcmanfm
-separator
-prog "Web Browser" /usr/share/pixmaps/iceweasel.xpm /usr/bin/iceweasel
-prog "Editor" /usr/share/icons/gTangish-2.0a1/32x32/apps/accessories-text-editor.png leafpad
+prog "Terminal" xterm roxterm
+prog "Web Browser" /usr/share/pixmaps/iceweasel.xpm iceweasel /usr/share/swiftlinux/help/index.html
+prog "Editor" /usr/share/icons/gTangish-2.0a1/32x32/apps/accessories-text-editor.png geany
 separator
 menufile "Applications" /usr/share/icons/gTangish-2.0a1/32x32/apps/blam.png application
 menu "Terminal Apps" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png 
